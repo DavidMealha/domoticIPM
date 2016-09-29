@@ -1,2 +1,2 @@
 # domoticIPM
-Academic Projecto for Human-Computer Interaction Course
+Academic Project for Human-Computer Interaction Course
