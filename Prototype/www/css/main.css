@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+td {
+    border: 1px solid black;
+    width: 500px;
+    text-align: center;
+}
+
+input,
+select {
+    margin: 0 auto; /* para centrar */
+}
+
+#elementos-container {
+    width: auto;
+    padding: 10px;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -20%);
+}
+
+#elementos {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 25px;
+}
+
+#elementos li a {
+
+}
+
+#elementos li a:visited {
+    color: black;
+}
+
+.btn {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+    padding: 0.5em 1em;
+    border: 1px solid black;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    transition: 0.2s all ease;
+}
+
+.btn:visited {
+    color: black;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
+}
