@@ -434,11 +434,11 @@ SistemaDomotico.prototype.constructor = SistemaDomotico;
  */
 SistemaDomotico.omissao = function() {
     var sis = new SistemaDomotico();
-    var cs1 = new Consola("Piso Basofe", sis);
+    var cs1 = new Consola("Piso 1", sis);
     sis.listaElementos.push(cs1);
 
-    var c1 = new Compartimento("Sala dos Tropas", cs1);
-    var c2 = new Compartimento("Sala do Jaiminho", cs1);
+    var c1 = new Compartimento("Sala de Estar", cs1);
+    var c2 = new Compartimento("Sala de Jantar", cs1);
     cs1.listaElementos.push(c1);
     cs1.listaElementos.push(c2);
 
