@@ -126,3 +126,11 @@ select {
     right: 0;
     position: fixed;
 }
+
+.list-unstyled {
+    margin-left: 15px;
+}
+
+.menu-list-item {
+    font-size: 14px !important;
+}

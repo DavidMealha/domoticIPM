@@ -2,13 +2,12 @@
 <html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
-    <title>Sistema Domótico</title>
+    <title>SmartDomotic</title>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="css/main.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="plugins/jquery/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="scripts/domotic.js"></script>
 </head>
 
 <body>
@@ -24,7 +23,7 @@
 	</div>
 
 	<!-- Use any element to open the sidenav -->
-	<span onclick="openNav()">></span>
+	<span onclick="openNav()">open</span>
 
     <div id="main">
 
@@ -38,10 +37,6 @@
 	<span onclick="openNavRight()" class="menu-open-right">open</span>
 
     <script type="text/javascript">
-    	window.onload = function () {
-    		openNav();
-    		openNavRight();
-		}
     	/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 		function openNav() {
 		    document.getElementById("mySidenav").style.width = "250px";
