@@ -244,3 +244,9 @@ select {
 .header-home img {
     margin-left: 0px
 }
+
+/*canvas styles*/
+canvas {
+    width: 100%;
+    border: 1px solid black;
+}
