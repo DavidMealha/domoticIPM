@@ -260,7 +260,7 @@ Ecra.prototype.apresentar = function (elemento) {
  * @param {number} id - numero passado referente ao index onde o objecto se encontra
  */
 Ecra.prototype.navegar = function(id) {
-	this.listaElementos[id].apresentar(document.getElementById("sistema"));
+	this.listaElementos[id].apresentar(document.getElementById("main"));
 };
 
 /**
@@ -387,7 +387,7 @@ Ecra.prototype.apagarEcra = function() {
  * Método que representa a acção de voltar, ou seja, é apresentado o objeto pai do próprio(this).
  */
 Ecra.prototype.voltarEcra = function () {
-	this.objectoPai.apresentar(document.getElementById("sistema"));
+	this.objectoPai.apresentar(document.getElementById("main"));
 };
 
 /**
@@ -401,7 +401,7 @@ Ecra.prototype.mudarInput = function(inputTitulo) {
     if(this.validarNome.call(this, aux, this.objectoPai.listaElementos)) {
         this.titulo = aux;
         inputTitulo.visualizacao.style.display = "none";
-        this.apresentar(document.getElementById("sistema"));
+        this.apresentar(document.getElementById("main"));
         if(this instanceof Compartimento) {
             this.monitorizar();
         }
@@ -869,7 +869,7 @@ EquipamentoOnOff.prototype.conecta = function(selectTrinco) {
 	var aux = selectTrinco.visualizacao.options[selectTrinco.visualizacao.selectedIndex].value;
 	this.conectadoA = this.objetoPai.listaElementos[aux];
 	selectTrinco.visualizacao.style.display = "none";
-	this.objetoPai.apresentar(document.getElementById("sistema"));
+	this.objetoPai.apresentar(document.getElementById("main"));
 	this.objetoPai.monitorizar();
 };
 
@@ -1081,7 +1081,7 @@ EquipamentoTemperatura.prototype.ativarAC = function() {
 			this.objetoPai.listaElementos[i].temperatura = this.temperatura;
 		}
 	}
-	this.objetoPai.apresentar(document.getElementById("sistema"));
+	this.objetoPai.apresentar(document.getElementById("main"));
 	this.objetoPai.monitorizar();
 
 };
@@ -1096,7 +1096,7 @@ EquipamentoTemperatura.prototype.mudarTemperatura = function(inputTemperatura) {
         this.temperatura = aux;
         inputTemperatura.visualizacao.style.display = "none";
 
-        this.objetoPai.apresentar(document.getElementById("sistema"));
+        this.objetoPai.apresentar(document.getElementById("main"));
         this.objetoPai.monitorizar();
     }
     else {
@@ -1252,7 +1252,7 @@ MotorEletrico.prototype.conecta = function(selectEstores, htmlEstado) {
     this.estado = this.conectadoA.estado;
     htmlEstado.visualizacao.textContent = this.listaEstados[this.estado].nome;
 	selectEstores.visualizacao.style.display = "none";
-	this.objetoPai.apresentar(document.getElementById("sistema"));
+	this.objetoPai.apresentar(document.getElementById("main"));
     this.objetoPai.monitorizar();
 };
 
@@ -1282,5 +1282,5 @@ EstoreEletrico.prototype.constructor = EstoreEletrico;
  * @property {function} onload - função que será executada quando a página estiver toda carregada.
  */
 window.onload = function () {
-	(SistemaDomotico.omissao()).apresentar(document.getElementById("sistema"));
+	(SistemaDomotico.omissao()).apresentar(document.getElementById("main"));
 };
