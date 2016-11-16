@@ -8,52 +8,76 @@
     <link href="css/main.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="plugins/jquery/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="scripts/domotic.js"></script>
+    <!-- <script type="text/javascript" src="scripts/domotic.js"></script> -->
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 
 <body>
 	<!--begin header -->
-	<div class="header">
-		<div onclick="openNav()" class="menu-button">
+	<div class="header header-home">
+		<!-- <div onclick="openNav()" class="menu-button">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
-		</div>	
+		</div> -->	
 		<img src="images/header-logo.png">
-		<div onclick="openNavRight()" class="menu-open-right menu-button">
+		<!-- <div onclick="openNavRight()" class="menu-open-right menu-button">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
-		</div>	
+		</div>	 -->
 	</div>
 	<!--end header -->
 
 	<!--begin main content -->
     <div id="main">
-
+    	<div class="container">
+    		<div class="row">
+				<div class="col-md-12">
+	    			<h1 class="text-center">John Doe's House</h1>
+	    		</div>	
+			</div>
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6">
+					<form action="floors.html" method="post">
+						<div>
+							<label>Role</label>
+							<select class="form-control" id="roles" required>
+						      <option>Admin</option>
+						    </select>
+						</div>
+						<div class="mt-15">
+							<label>Password</label>
+							<input class="form-control" type="password" name="password" required>
+						</div>
+						
+						<button class="btn btn-form" type="submit">Submit</button>
+					</form>
+				</div>
+			</div>
+    	</div>
     </div>
 	<!--end main content -->
 
     <!--begin left side menu -->
-	<div id="mySidenav" class="sidenav sidenav-left">
+	<!-- <div id="mySidenav" class="sidenav sidenav-left">
 	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 	  <a href="index.html" class="sidenav-a">Home</a>
 	  <a href="floors.html" class="sidenav-a">Floors</a>
 	  <ul class="list-unstyled">
-	  	<li><a href="#" class="menu-list-item">Floor 1</a></li>
-	  	<li><a href="#" class="menu-list-item">Floor 2</a></li>
+	  	<li><a href="floor1.html" class="menu-list-item">Floor 1</a></li>
+	  	<li><a href="floor2.html" class="menu-list-item">Floor 2</a></li>
 	  </ul>
 	  <a href="configuration.html" class="sidenav-a">Configuration</a>
 	  <a href="#" class="sidenav-a">Logout</a>
-	</div>
+	</div> -->
 	<!--end left side menu -->
 
     <!--begin rigth side menu -->
-	<div id="mySidenav2" class="sidenav sidenav-right">
+	<!-- <div id="mySidenav2" class="sidenav sidenav-right">
 		  <a href="javascript:void(0)" class="closebtn" onclick="closeNavRight()">&times;</a>
 		  <a href="#" class="sidenav-right-a">Equipment</a>
-	</div>
+	</div> -->
 	<!--end rigth side menu -->
 </body>
 
