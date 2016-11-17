@@ -10,10 +10,11 @@
     <script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
     <!-- <script type="text/javascript" src="scripts/domotic.js"></script> -->
     <script type="text/javascript" src="scripts/main.js"></script>
+	<script type="text/javascript" src="scripts/canvas.js"></script>
 
 </head>
 
-<body>
+<body onload="init()">
 	<!--begin header -->
 	<div class="header">
 		<div onclick="openNav()" class="menu-button">
@@ -40,7 +41,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<canvas></canvas>
+					<canvas id="canvas" width="2500" height="2500" style="border: 1px solid black; cursor: pointer;"></canvas>
 				</div>
 			</div>
     	</div>
