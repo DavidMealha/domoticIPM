@@ -23,16 +23,16 @@
 			<span class="icon-bar"></span>
 		</div>	
 		<img src="images/header-logo.png">
-		<div onclick="openNavRight()" class="menu-open-right menu-button">
+		<!-- <div onclick="openNavRight()" class="menu-open-right menu-button">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
-		</div>	
+		</div>	 -->
 	</div>
 	<!--end header -->
 
 	<!--begin main content -->
-    <div id="main" class="menu-both">
+    <div id="main" class="menu-left">
     	<div class="">
     		<div class="row">
 				<div class="col-md-12">
@@ -40,8 +40,29 @@
 	    		</div>	
 			</div>
 			<div class="row">
-				<div class="col-md-12">
-					<canvas id="canvas" width="2500" height="2500" style="border: 1px solid black; cursor: pointer;"></canvas>
+				<div class="col-xs-12 col-md-9">
+					<!-- <canvas id="canvas" width="2500" height="2500" style="border: 1px solid black; cursor: pointer;"></canvas> -->
+					<canvas id="canvas"></canvas>
+				</div>
+				<div class="col-xs-12 col-md-3">
+					<h4>Equipment</h4>
+					<div class="row">
+						<div class="col-xs-1 col-md-3">
+							<img id="lamp" src="images/movimentoOn.png">
+						</div>
+						<div class="col-xs-1 col-md-3">
+							<img src="images/portaAberta.png">
+						</div>
+						<div class="col-xs-1 col-md-3">
+							<img src="images/stove.png">
+						</div>
+						<div class="col-xs-1 col-md-3">
+							<img src="images/tv.png">
+						</div>
+						<div class="col-xs-1 col-md-3">
+							<img src="images/ac.png">
+						</div>
+					</div>
 				</div>
 			</div>
     	</div>
@@ -62,10 +83,10 @@
 	<!--end left side menu -->
 
     <!--begin rigth side menu -->
-	<div id="mySidenav2" class="sidenav sidenav-right">
+	<!-- <div id="mySidenav2" class="sidenav sidenav-right">
 		  <a href="javascript:void(0)" class="closebtn" onclick="closeNavRight()">&times;</a>
 		  <a href="#" class="sidenav-right-a">Equipment</a>
-	</div>
+	</div> -->
 	<!--end rigth side menu -->
 
 	<script type="text/javascript">
