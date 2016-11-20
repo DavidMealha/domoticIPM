@@ -37,35 +37,35 @@ $(window).resize(function() {
 });
 
 
-$(document).ready(function(){
-    function fixPageXY(e) {
-      if (e.pageX == null && e.clientX != null ) { 
-        var html = document.documentElement
-        var body = document.body
+// $(document).ready(function(){
+//     function fixPageXY(e) {
+//       if (e.pageX == null && e.clientX != null ) { 
+//         var html = document.documentElement;
+//         var body = document.body;
 
-        e.pageX = e.clientX + (html.scrollLeft || body && body.scrollLeft || 0)
-        e.pageX -= html.clientLeft || 0
+//         e.pageX = e.clientX + (html.scrollLeft || body && body.scrollLeft || 0)
+//         e.pageX -= html.clientLeft || 0
         
-        e.pageY = e.clientY + (html.scrollTop || body && body.scrollTop || 0)
-        e.pageY -= html.clientTop || 0
-      }
-    }
+//         e.pageY = e.clientY + (html.scrollTop || body && body.scrollTop || 0)
+//         e.pageY -= html.clientTop || 0
+//       }
+//     }
 
-    document.getElementById('lamp').onmousedown = function() {
-      this.style.position = 'absolute'
+//     document.getElementById('lamp').onmousedown = function() {
+//       this.style.position = 'absolute';
 
-      var self = this
+//       var self = this
 
-      document.onmousemove = function(e) {
-        e = e || event
-        fixPageXY(e)  
-        // put ball center under mouse pointer. 25 is half of width/height
-        self.style.left = e.pageX-25+'px' 
-        self.style.top = e.pageY-25+'px' 
-      }
-      this.onmouseup = function() {
-        document.onmousemove = null
-      }
-    }
+//       document.onmousemove = function(e) {
+//         e = e || event
+//         fixPageXY(e)  
+//         // put ball center under mouse pointer. 25 is half of width/height
+//         self.style.left = e.pageX-25+'px' 
+//         self.style.top = e.pageY-25+'px' 
+//       }
+//       this.onmouseup = function() {
+//         document.onmousemove = null
+//       }
+//     }
 
-});
+// });
