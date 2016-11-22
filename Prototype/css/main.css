@@ -236,7 +236,7 @@ select {
     transition: 0.5s;
 }
 
-.header-home {
+.header-home {  
     background-color: #f0f7da;
     margin: 0px;
 }
@@ -249,4 +249,145 @@ select {
 canvas {
     /*width: 100%;*/
     border: 1px solid black;
+}
+
+/*
+-----------------
+-----------------
+Floor Page Styles
+-----------------
+-----------------
+*/
+#plant {
+    border: 1px solid black;
+    max-height: 100%;
+    position: relative;
+}
+
+#kitchen {
+    bottom: 0;
+    position: absolute;
+    width: 35%;
+    height: 50%;
+    border: 1px solid black;
+}
+
+#bedroom {
+    left: 0;
+    position: absolute;
+    width: 35%;
+    height: 50%;
+    border: 1px solid black;
+}
+
+#livingroom {
+    right: 0;
+    position: absolute;
+    width: 55%;
+    height: 50%;
+    border: 1px solid black;
+}
+
+#wc {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    border: 1px solid black;
+}
+
+#lamp1 {
+    left: 10%;
+    top: 10%;
+    position: absolute;
+}
+
+.equipment:hover {
+    cursor: pointer;
+}
+
+.division-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*positions of the equipment in floor 1*/
+/*bedroom equipment*/
+#ac1 {
+    position: absolute;
+    left: 40%;
+}
+
+#door1 {
+    position: absolute;
+    right: 0;
+    top: 60%;
+    transform: translate(50%,0);
+}
+
+/*kitchen equipment*/
+#lamp1 {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,0);
+}
+
+#door2 {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    transform: translate(50%,0);
+}
+
+#stove1 {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+
+/*wc equipment*/
+#door3 {
+    position: absolute;
+    right: 10%;
+    top: 0;
+    transform: translate(0,-50%);
+}
+
+/*living room equipment*/
+#ac2 {
+    position: absolute;
+    top: 0;
+    left: 5%;
+}
+
+#ac3 {
+    position: absolute;
+    bottom: 0;
+    right: 15%;
+}
+
+#tv1 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+#door4 {
+    position: absolute;
+    left: 0;
+    top: 60%;
+    transform: translate(-50%, 0);
+}
+
+#door5 {
+    position: absolute;
+    bottom: 0;
+    right: 60%;
+    transform: translate(0, 50%);
 }

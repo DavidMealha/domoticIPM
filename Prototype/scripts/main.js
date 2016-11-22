@@ -36,7 +36,13 @@ $(window).resize(function() {
     }
 });
 
-
+function calcPlantHeight(){
+    //plant format is 6x3,5
+    //so width  - 6
+    //   height - 3,5
+    var height = ($('#plant').parent().width() * 3.5) / 6;
+    $('#plant').css({'height': height});
+}
 // $(document).ready(function(){
 //     function fixPageXY(e) {
 //       if (e.pageX == null && e.clientX != null ) { 
