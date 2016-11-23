@@ -395,7 +395,7 @@ Floor Page Styles
 
 
 
-#equipmentBox {
+.popup-box {
     position: absolute;
     border-radius: 5px;
     background: #fff;
@@ -406,7 +406,7 @@ Floor Page Styles
     font-size: 14px;
 }
  
-#equipmentBox .close {
+.popup-box .close {
     position: absolute;
     top: 0px;
     right: 0px;
@@ -418,20 +418,20 @@ Floor Page Styles
     font-size: 20px;
 }
  
-#equipmentBox .close:hover {
+.popup-box .close:hover {
     color: #000;
 }
  
-#equipmentBox h2 {
+.popup-box h2 {
     padding: 0;
     margin: 0;
     font-size: 18px;
 }
-#equipmentBox .top {
+.popup-box .top {
     padding: 20px;
 }
  
-#equipmentBox .bottom {
+.popup-box .bottom {
     background: #eee;
     border-top: 1px solid #e5e5e5;
     padding: 20px;
