@@ -1,162 +1,166 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
-<head>
-    <meta charset="UTF-8">
-    <title>SmartDomotic</title>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/main.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="plugins/jquery/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!-- <script type="text/javascript" src="scripts/domotic.js"></script> -->
-    <script type="text/javascript" src="scripts/main.js"></script>
-	<!-- <script type="text/javascript" src="scripts/canvas.js"></script> -->
+	<head>
+	    <meta charset="UTF-8">
+	    <title>SmartDomotic</title>
+	    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	    <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	    <link href="css/main.css" rel="stylesheet" type="text/css" />
+	    <script type="text/javascript" src="plugins/jquery/jquery-3.1.1.min.js"></script>
+	    <script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+	    <!-- <script type="text/javascript" src="scripts/domotic.js"></script> -->
+	    <script type="text/javascript" src="scripts/main.js"></script>
+		<!-- <script type="text/javascript" src="scripts/canvas.js"></script> -->
 
-</head>
+	</head>
 
-<body>
-	<!--begin header -->
-	<div class="header">
-		<div onclick="openNav()" class="menu-button">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</div>	
-		<img src="images/header-logo.png">
-		<!-- <div onclick="openNavRight()" class="menu-open-right menu-button">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</div>	 -->
-	</div>
-	<!--end header -->
+	<body>
+		<!--begin header -->
+		<div class="header">
+			<div onclick="openNav()" class="menu-button">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</div>	
+			<img src="images/header-logo.png">
+		</div>
+		<!--end header -->
 
-	<!--begin main content -->
-    <div id="main" class="menu-left">
-    	<div class="">
-    		<div class="row">
-				<div class="col-md-12">
-	    			<h1 class="text-center">John Doe's House - Floor 1 </h1>
-	    		</div>	
-	    		<div class="col-md-12">
-	    			<label class="switch">
-					  <input type="checkbox">
-					  <div class="slider round"></div>
-					</label>
-	    		</div>	
-			</div>
-			<div class="row">
-				<div class="col-xs-12 col-md-offset-2 col-md-8">
-					<div id="plant">
-						<div id="bedroom">
-							<img id="ac1" class="ac equipment" src="images/ac.png">
-							<img id="door1" class="door equipment" src="images/door-open.png">
-							<h5 class="text-center division-name">Bedroom</h5>
+		<!--begin main content -->
+	    <div id="main" class="menu-left">
+	    	<div class="">
+	    		<div class="row">
+					<div class="col-md-12">
+		    			<h1 class="text-center">John Doe's House - Floor 1 </h1>
+		    		</div>	
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-md-offset-2 col-md-8">
+						<div id="plant">
+							<div id="bedroom">
+								<img id="ac1" class="ac equipment" src="images/ac.png">
+								<img id="door1" class="door equipment" src="images/door-open.png">
+								<h5 class="text-center division-name">Bedroom</h5>
+							</div>
+							<div id="kitchen">
+								<img id="lamp1" class="lamp equipment" src="images/lamp-on.png">
+								<img id="door2" class="door equipment" src="images/door-open.png">
+								<img id="stove1" class="stove equipment" src="images/stove-on.png">
+								<h5 class="text-center division-name">Kitchen</h5>
+							</div>
+							<div id="wc">
+								<img id="door3" class="door equipment" src="images/door-open.png">
+								<h5 class="text-center division-name">WC</h5>
+							</div>
+							<div id="livingroom">
+								<img id="ac2" class="ac equipment" src="images/ac.png">
+								<img id="ac3" class="ac equipment" src="images/ac.png">
+								<img id="tv1" class="tv equipment" src="images/tv-on.png">
+								<!-- add window blinds -->
+								<img id="door4" class="door equipment" src="images/door-open.png">
+								<img id="door5" class="door equipment" src="images/door-open.png">
+								<h5 class="text-center division-name">Living Room</h5>
+							</div>
 						</div>
-						<div id="kitchen">
-							<img id="lamp1" class="lamp equipment" src="images/lamp-on.png">
-							<img id="door2" class="door equipment" src="images/door-open.png">
-							<img id="stove1" class="stove equipment" src="images/stove-on.png">
-							<h5 class="text-center division-name">Kitchen</h5>
+						<div id="plantDrawing">
+							<!-- make this div visible when the user chooses to configure the floor, otherwise show #plant div -->
+							<!-- <canvas id="canvas" width="800" height="600" style="border: 1px solid black; cursor: pointer; width: 800px; height: 600px"></canvas> -->
+							<!-- <canvas id="canvas"></canvas> -->
 						</div>
-						<div id="wc">
-							<img id="door3" class="door equipment" src="images/door-open.png">
-							<h5 class="text-center division-name">WC</h5>
-						</div>
-						<div id="livingroom">
-							<img id="ac2" class="ac equipment" src="images/ac.png">
-							<img id="ac3" class="ac equipment" src="images/ac.png">
-							<img id="tv1" class="tv equipment" src="images/tv-on.png">
-							<!-- add window blinds -->
-							<img id="door4" class="door equipment" src="images/door-open.png">
-							<img id="door5" class="door equipment" src="images/door-open.png">
-							<h5 class="text-center division-name">Living Room</h5>
-						</div>
-					</div>
-					<div id="plantDrawing">
-						<!-- make this div visible when the user chooses to configure the floor, otherwise show #plant div -->
-						<!-- <canvas id="canvas" width="800" height="600" style="border: 1px solid black; cursor: pointer; width: 800px; height: 600px"></canvas> -->
-						<!-- <canvas id="canvas"></canvas> -->
 					</div>
 				</div>
-			</div>
-    	</div>
-    </div>
-	<!--end main content -->
+				<div class="row">
+					<div class="configuration-mode">
+						<span>Configuration Mode</span>
+						<button id="btn-toggle-off" class="btn btn-toggle" onclick="javascript:handleOffConfig(this);">Off</button>
+						<button id="btn-toggle-on" class="btn btn-toggle" onclick="javascript:handleOnConfig(this);">On</button>
+		    		</div>	
+				</div>
+	    	</div>
+	    </div>
+		<!--end main content -->
 
-    <!--begin left side menu -->
-	<div id="mySidenav" class="sidenav sidenav-left">
-	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	  <a href="floors.html" class="sidenav-a">Floors</a>
-	  <ul class="list-unstyled">
-	  	<li><a href="floor1.html" class="menu-list-item sidenav-a-active">Floor 1</a></li>
-	  	<li><a href="floor2.html" class="menu-list-item">Floor 2</a></li>
-	  </ul>
-	  <a href="configuration.html" class="sidenav-a">Configuration</a>
-	  <a href="index.html" class="sidenav-a">Logout</a>
-	</div>
-	<!--end left side menu -->
+	    <!--begin left side menu -->
+		<div id="mySidenav" class="sidenav sidenav-left">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <a href="floors.html" class="sidenav-a">Floors</a>
+		  <ul class="list-unstyled">
+		  	<li><a href="floor1.html" class="menu-list-item sidenav-a-active">Floor 1</a></li>
+		  	<li><a href="floor2.html" class="menu-list-item">Floor 2</a></li>
+		  </ul>
+		  <a href="configuration.html" class="sidenav-a">Configuration</a>
+		  <a href="index.html" class="sidenav-a">Logout</a>
+		</div>
+		<!--end left side menu -->
 
-    <!--begin rigth side menu -->
-	<!-- <div id="mySidenav2" class="sidenav sidenav-right">
-		  <a href="javascript:void(0)" class="closebtn" onclick="closeNavRight()">&times;</a>
-		  <a href="#" class="sidenav-right-a">Equipment</a>
-	</div> -->
-	<!--end rigth side menu -->
+		<script type="text/javascript">
+			$(document).ready(function(){
+				calcPlantHeight();
+				handleOffConfig($('#btn-toggle-off'));
+			});
 
-	<script type="text/javascript">
-		$(document).ready(function(){
-			calcPlantHeight();
-		});
+			$(window).resize(function() {
+				calcPlantHeight();
+			});
 
-		$(window).resize(function() {
-			calcPlantHeight();
-		});
+			$(".ac").hover(function(){
+				//this.src = 'images/ac-hover.png';
+				$(this).attr('src', 'images/ac-hover.png');
+			});
 
-		$(".ac").hover(function(){
-			//this.src = 'images/ac-hover.png';
-			$(this).attr('src', 'images/ac-hover.png');
-		});
+			$(".ac").mouseout(function() {
+				$(this).attr('src', 'images/ac.png');
+			});
 
-		$(".ac").mouseout(function() {
-			$(this).attr('src', 'images/ac.png');
-		});
+			$(".door").hover(function(){
+				//this.src = 'images/ac-hover.png';
+				$(this).attr('src', 'images/door-open-hover.png');
+			});
 
-		$(".door").hover(function(){
-			//this.src = 'images/ac-hover.png';
-			$(this).attr('src', 'images/door-open-hover.png');
-		});
+			$(".door").mouseout(function() {
+				$(this).attr('src', 'images/door-open.png');
+			});
 
-		$(".door").mouseout(function() {
-			$(this).attr('src', 'images/door-open.png');
-		});
+			$(".lamp").hover(function(){
+				//this.src = 'images/ac-hover.png';
+				$(this).attr('src', 'images/lamp-on-hover.png');
+			});
 
-		$(".lamp").hover(function(){
-			//this.src = 'images/ac-hover.png';
-			$(this).attr('src', 'images/lamp-on-hover.png');
-		});
+			$(".lamp").mouseout(function() {
+				$(this).attr('src', 'images/lamp-on.png');
+			});
 
-		$(".lamp").mouseout(function() {
-			$(this).attr('src', 'images/lamp-on.png');
-		});
+			$(".stove").hover(function(){
+				//this.src = 'images/ac-hover.png';
+				$(this).attr('src', 'images/stove-on-hover.png');
+			});
 
-		$(".stove").hover(function(){
-			//this.src = 'images/ac-hover.png';
-			$(this).attr('src', 'images/stove-on-hover.png');
-		});
+			$(".stove").mouseout(function() {
+				$(this).attr('src', 'images/stove-on.png');
+			});
 
-		$(".stove").mouseout(function() {
-			$(this).attr('src', 'images/stove-on.png');
-		});
+			$(".tv").hover(function(){
+				//this.src = 'images/ac-hover.png';
+				$(this).attr('src', 'images/tv-on-hover.png');
+			});
 
-		$(".tv").hover(function(){
-			//this.src = 'images/ac-hover.png';
-			$(this).attr('src', 'images/tv-on-hover.png');
-		});
+			$(".tv").mouseout(function() {
+				$(this).attr('src', 'images/tv-on.png');
+			});
 
-		$(".tv").mouseout(function() {
-			$(this).attr('src', 'images/tv-on.png');
-		});
+			function handleOffConfig(btnElem){
+				$('#plant').show();
+				$('#plantDrawing').hide();
+				$(btnElem).css({'color': 'white', 'background-color': '#36802d'});
+				$('#btn-toggle-on').css({'background-color': 'white', 'color': '#36802d'});
+			}
+
+			function handleOnConfig(btnElem){
+				$('#plant').hide();
+				$('#plantDrawing').show();
+				$(btnElem).css({'color': 'white', 'background-color': '#36802d'});
+				$('#btn-toggle-off').css({'background-color': 'white', 'color': '#36802d'});
+			}
 	</script>
 </body>
 

@@ -3,6 +3,8 @@ function openNav() {
     document.getElementById("mySidenav").style.width = "200px";
     document.getElementById("main").style.marginLeft = "200px";
     $('.header img').css('margin-left', '170px');
+
+    //call the function that resizes the plant
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
@@ -10,6 +12,8 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginLeft = "0";
     $('.header img').css('margin-left', '0px');
+
+    //call the function that resizes the plant
 }
 
 function openNavRight() {
@@ -86,7 +90,7 @@ $(document).ready(function() {
 
     $('body').append('<div id="blackout"></div>');
 
-    $('#main').prepend('<div id="equipmentBox"><div class="close">X</div><div class="top"><h2></h2></div><div class="currentStatus"></div>'+
+    $('#main').prepend('<div id="equipmentBox"><div class="close">x</div><div class="top"><h2></h2></div><div class="currentStatus"></div>'+
 
 '<ul class="nav nav-tabs"><li class="active"><a data-toggle="tab" href="#newSchedule">New Schedule</a></li><li><a data-toggle="tab" href="#currentSchedule">Current Schedule</a></li></ul><div class="tab-content"><div id="newSchedule" class="tab-pane fade in active"></div><div id="currentSchedule" class="tab-pane fade"></div></div>'
 
@@ -126,6 +130,16 @@ $(document).ready(function() {
          
         var scrollPos = $(window).scrollTop();
         
+        //getting the equipment type, always the first class name
+        equipmentType = this.className.split(" ")[0];
+
+        if (equipmentType == "ac") {
+            alert("ac!");
+        } else if (equipmentType == "lamp") {
+            alert("lamp!");
+        }        
+
+
         $('#equipmentBox .top h2').html($(this).attr('id')+' - Equipment Control');
         $('#equipmentBox').show();
         $('#blackout').show();
