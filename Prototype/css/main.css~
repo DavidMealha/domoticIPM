@@ -432,10 +432,6 @@ Floor Page Styles
 #equipmentBox #currentSchedule {
     padding: 20px;
 }
-
-#equipmentBox .nav-tabs {
-    margin-top: 10px;
-}
  
 #equipmentBox .bottom,
 #equipmentBox .currentStatus {
