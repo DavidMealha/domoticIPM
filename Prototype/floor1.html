@@ -36,7 +36,13 @@
     	<div class="">
     		<div class="row">
 				<div class="col-md-12">
-	    			<h1 class="text-center">John Doe's House - Floor 1</h1>
+	    			<h1 class="text-center">John Doe's House - Floor 1 </h1>
+	    		</div>	
+	    		<div class="col-md-12">
+	    			<label class="switch">
+					  <input type="checkbox">
+					  <div class="slider round"></div>
+					</label>
 	    		</div>	
 			</div>
 			<div class="row">
@@ -67,15 +73,12 @@
 							<h5 class="text-center division-name">Living Room</h5>
 						</div>
 					</div>
-					<!-- in this page we will have html elements instead of canvas, because the drawing is made in another page, so it can be more intuitive, configure in one place, use in another -->
-
-
-					<!-- <canvas id="canvas" width="800" height="600" style="border: 1px solid black; cursor: pointer; width: 800px; height: 600px"></canvas> -->
-					<!-- <canvas id="canvas"></canvas> -->
+					<div id="plantDrawing">
+						<!-- make this div visible when the user chooses to configure the floor, otherwise show #plant div -->
+						<!-- <canvas id="canvas" width="800" height="600" style="border: 1px solid black; cursor: pointer; width: 800px; height: 600px"></canvas> -->
+						<!-- <canvas id="canvas"></canvas> -->
+					</div>
 				</div>
-				<!-- <div class="col-md-2">
-					<h4>Equipment</h4>
-				</div> -->
 			</div>
     	</div>
     </div>
