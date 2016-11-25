@@ -124,15 +124,15 @@ $(document).ready(function() {
         //setting the new schedule controls
         var newScheduleElements = '<form>';
         if(equipmentType == "ac") {
-            newScheduleElements += '<div class="form-block"><label>Temperature</label><select class="form-input">' + optionsAC+ '</select></div>';
+            newScheduleElements += '<div class="form-block"><label>Temperature</label><select class="form-input">' + optionsAC+ '</select><span class="red"> *</span></div>';
         }else if (equipmentType == "stove") {
-            newScheduleElements += '<div class="form-block"><label>Temperature</label><select class="form-input">' + optionsStove+ '</select></div>';
+            newScheduleElements += '<div class="form-block"><label>Temperature</label><select class="form-input">' + optionsStove+ '</select><span class="red"> *</span></div>';
         }
 
         newScheduleElements += '<div class="form-block"><label>Day Of The Week</label><select class="form-input"><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></div>'+
-            '<div class="form-block"><label>Starting Hour</label><input type="time" class="form-input"></div>'+
+            '<div class="form-block"><label>Starting Hour</label><input type="time" class="form-input"><span class="red"> *</span></div>'+
             '<div class="form-block"><label>Duration</label><input type="number" class="form-input"><select class="form-input"><option>Hours</option><option>Minutes</option></select></div>'+
-            '<div class="form-block"><label>Daily</label><input type="checkbox" class="form-input"></div></form>';
+            '<div class="form-block"><label>Daily</label><input type="checkbox" class="form-input"></div><div><span class="red">* Required</span></div></form>';
 
         $('#equipmentBox div#newSchedule').html(newScheduleElements);
 

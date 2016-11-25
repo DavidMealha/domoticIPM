@@ -394,8 +394,8 @@ Floor Page Styles
 
 /*div with button to change plant screen*/
 .configuration-mode {
-    position: absolute;
-    left: 50%;
+/*    position: absolute;
+    left: 50%;*/
     margin-top: 10px;
 }
 
@@ -534,4 +534,9 @@ Toggle Styles
 .btn-red:hover, .btn-red:focus {
     background-color: red;
     color: white;
+}
+
+#scheduleDetails:hover {
+    cursor: pointer;
+    color: black;
 }
