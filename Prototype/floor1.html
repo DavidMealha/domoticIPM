@@ -10,7 +10,8 @@
 	    <script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
 	    <!-- <script type="text/javascript" src="scripts/domotic.js"></script> -->
 	    <script type="text/javascript" src="scripts/main.js"></script>
-		<!-- <script type="text/javascript" src="scripts/canvas.js"></script> -->
+		<script type="text/javascript" src="scripts/boxes2.js"></script>
+		
 
 	</head>
 
@@ -63,9 +64,17 @@
 							</div>
 						</div>
 						<div id="plantDrawing">
-							<!-- make this div visible when the user chooses to configure the floor, otherwise show #plant div -->
-							<!-- <canvas id="canvas" width="800" height="600" style="border: 1px solid black; cursor: pointer; width: 800px; height: 600px"></canvas> -->
-							<!-- <canvas id="canvas"></canvas> -->
+							<input type="button" value="Introdução de equipamentos" id="buttoncanvas"></input> 
+							<div id="container2">
+							<canvas id="canvas2" width="600" height="500" style="cursor: auto;">
+							This text is displayed if your browser does not support HTML5 Canvas.
+							</canvas>
+							</div>
+							<div id="cont">
+							<button id="more">Add Image</button><br>
+							<canvas height="100" width="600" id="cvs1">[No canvas support]</canvas><br>
+							<canvas height="600" width="700" id="cvs2">[No canvas support]</canvas>
+							</div>
 						</div>
 					</div>
 				</div>
