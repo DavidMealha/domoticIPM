@@ -59,12 +59,7 @@ $(document).ready(function() {
 
 +'<div class="bottom"></div></div>');
 
-    
     $('#equipmentBox .bottom').append('<button class="btn" onclick="$(\'.close\').click()">Schedule</button><a href="#" class="btn-cancel" onclick="$(\'.close\').click()">Cancel</a>');
-    
-    $('#equipmentBox div#currentSchedule').append('Current schedule stuff here');
-     
-
 
     var boxWidth = 400;
 
@@ -104,16 +99,26 @@ $(document).ready(function() {
         //setting the change state controls
         var optionsAC = "<option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>";
         var optionsStove = "<option>90</option><option>120</option><option>150</option><option>180</option><option>210</option><option>240</option><option>270</option><option>300</option>";
-        if (equipmentType == "ac") {
-            if(currentState == "on") {
-                $('#equipmentBox .currentStatus').html('<a id="btn-change-state" href="#">Change State!</a><div class="form-block"><label>Temperature:</label><select class="form-input">' + optionsAC + '</select></div>');
-            }
-        } else if (equipmentType == "stove") {
-            if(currentState == "on"){
-                $('#equipmentBox .currentStatus').html('<a id="btn-change-state" href="#">Change State!</a><div><label>Temperature:</label><select class="form-input">' + optionsStove + '</select></div>');    
-            }
+
+        var btnMessage,statusMessage,spanColorTag, btnColorTag;
+        if(currentState == "on"){
+            btnMessage = "Turn Off";
+            statusMessage = "Currently ON - ";
+            spanColorTag = "green";
+            btnColorTag = "btn-red";
         }else{
-            $('#equipmentBox .currentStatus').html('<a id="btn-change-state" href="#">Change State!</a>');
+            btnMessage = "Turn On";
+            statusMessage = "Currently OFF - ";
+            spanColorTag = "red";
+            btnColorTag = "btn-green";
+        }
+
+        if (equipmentType == "ac") {
+            $('#equipmentBox .currentStatus').html('<span id="currentStatusSpan" class="'+spanColorTag+'">'+statusMessage+'</span><a id="btn-change-state" class="btn '+btnColorTag+'" href="#">'+ btnMessage +'</a><div class="form-block"><label>Temperature:</label><select class="form-input">' + optionsAC + '</select></div>');
+        } else if (equipmentType == "stove") {
+            $('#equipmentBox .currentStatus').html('<span id="currentStatusSpan" class="'+spanColorTag+'">'+statusMessage+'</span><a id="btn-change-state" class="btn '+btnColorTag+'" href="#">'+ btnMessage +'</a><div><label>Temperature:</label><select class="form-input">' + optionsStove + '</select></div>');    
+        }else{
+            $('#equipmentBox .currentStatus').html('<span id="currentStatusSpan" class="'+spanColorTag+'">'+statusMessage+'</span><a id="btn-change-state" class="btn '+btnColorTag+'" href="#">'+ btnMessage +'</a>');
         }   
 
         //setting the new schedule controls
@@ -131,6 +136,9 @@ $(document).ready(function() {
 
         $('#equipmentBox div#newSchedule').html(newScheduleElements);
 
+        //current schedule listing
+        $('#equipmentBox div#currentSchedule').html('<ul class="list-group"><li class="list-group-item"><div>Daily - 8:00 - 22º <i id="scheduleDetails" class="glyphicon glyphicon-chevron-down" style="float: right;" onclick="openUpdateForm()"></i></div><div id="updateSchedule"></div></li></ul>');
+
         //on click of change state alter the visual state of the equipment
         $('#btn-change-state').unbind().click(function(ev){
             ev.preventDefault();
@@ -140,11 +148,24 @@ $(document).ready(function() {
                 currentState = "on";
                 equipment.data("state", "on");    
                 equipment.attr("src", "images/" + equipmentType + "-on.png");
+
+                ev.target.className = "btn btn-red";
+                $(ev.target).text("Turn Off");
+                $('#currentStatusSpan').text('Currently ON - ').attr('class', 'green');
+
             }else{
                 currentState = "off";
                 equipment.data("state", "off"); 
                 equipment.attr("src", "images/" + equipmentType + "-off.png");
+
+                ev.target.className = "btn btn-green";
+                $(ev.target).text("Turn On");
+                $('#currentStatusSpan').text('Currently OFF - ').attr('class', 'red');
             }
+        });
+
+        $('#scheduleDetails').unbind().click(function(ev){
+            $('#updateSchedule').html(newScheduleElements);
         });
 
         $('#equipmentBox .top h2').html($(this).attr('id')+' - Equipment Control');
@@ -165,7 +186,6 @@ $(document).ready(function() {
         $('html').scrollTop(scrollPos);
     });
 });
-
 // Clicking anywhere outside of the popup box will close it
 
 $(document).mouseup(function (e) {

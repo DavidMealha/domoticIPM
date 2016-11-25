@@ -493,6 +493,7 @@ Toggle Styles
     padding: 5px !important;
     margin-left: 10px !important;
     border: 1px solid grey;
+    max-width: 120px;
 }
 
 .btn-cancel {
@@ -503,4 +504,34 @@ Toggle Styles
 .btn-cancel:hover {
     color: black;
     text-decoration: none;
+}
+
+.green {
+    color: #36802d;
+    font-weight: bold;
+}
+
+.red {
+    color: red;
+    font-weight: bold;
+}
+
+.btn-green {
+    background-color: white;
+    color: #36802d;
+}
+
+.btn-green:hover, .btn-green:focus {
+    background-color: #36802d;
+    color: white;
+}
+
+.btn-red {
+    background-color: white;
+    color: red;
+}
+
+.btn-red:hover, .btn-red:focus {
+    background-color: red;
+    color: white;
 }
