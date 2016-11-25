@@ -47,45 +47,8 @@ function calcPlantHeight(){
     var height = ($('#plant').parent().width() * 3.5) / 6;
     $('#plant').css({'height': height});
 }
-// $(document).ready(function(){
-//     function fixPageXY(e) {
-//       if (e.pageX == null && e.clientX != null ) { 
-//         var html = document.documentElement;
-//         var body = document.body;
-
-//         e.pageX = e.clientX + (html.scrollLeft || body && body.scrollLeft || 0)
-//         e.pageX -= html.clientLeft || 0
-        
-//         e.pageY = e.clientY + (html.scrollTop || body && body.scrollTop || 0)
-//         e.pageY -= html.clientTop || 0
-//       }
-//     }
-
-//     document.getElementById('lamp').onmousedown = function() {
-//       this.style.position = 'absolute';
-
-//       var self = this
-
-//       document.onmousemove = function(e) {
-//         e = e || event
-//         fixPageXY(e)  
-//         // put ball center under mouse pointer. 25 is half of width/height
-//         self.style.left = e.pageX-25+'px' 
-//         self.style.top = e.pageY-25+'px' 
-//       }
-//       this.onmouseup = function() {
-//         document.onmousemove = null
-//       }
-//     }
-
-// });
-
-
-
-
 
 /* Equipment control popup box */
-
 $(document).ready(function() {
 
     $('body').append('<div id="blackout"></div>');
@@ -96,11 +59,13 @@ $(document).ready(function() {
 
 +'<div class="bottom"></div></div>');
 
-    $('#equipmentBox .currentStatus').append('Current temp/state here');
-    $('#equipmentBox .bottom').append('Save schedule/Cancel here');
-    $('#equipmentBox div#newSchedule').append('New schedule stuff here');
+    
+    $('#equipmentBox .bottom').append('<button class="btn" onclick="$(\'.close\').click()">Schedule</button><a href="#" class="btn-cancel" onclick="$(\'.close\').click()">Cancel</a>');
+    
     $('#equipmentBox div#currentSchedule').append('Current schedule stuff here');
      
+
+
     var boxWidth = 400;
 
     function centerBox() {
@@ -111,7 +76,7 @@ $(document).ready(function() {
          
          
         var disWidth = (winWidth - boxWidth) / 2;
-        var disHeight = scrollPos + 150;
+        var disHeight = scrollPos + 70;
          
         $('#equipmentBox').css({'width' : boxWidth+'px', 'left' : disWidth+'px', 'top' : disHeight+'px'});
         $('#blackout').css({'width' : winWidth+'px', 'height' : winHeight+'px'});
@@ -131,14 +96,56 @@ $(document).ready(function() {
         var scrollPos = $(window).scrollTop();
         
         //getting the equipment type, always the first class name
-        equipmentType = this.className.split(" ")[0];
+        var equipmentType = this.className.split(" ")[0];
+        var equipmentIdTag = '#' + $(this).attr('id');
+        var equipment = $(equipmentIdTag);
+        var currentState = equipment.data("state");
 
+        //setting the change state controls
+        var optionsAC = "<option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>";
+        var optionsStove = "<option>90</option><option>120</option><option>150</option><option>180</option><option>210</option><option>240</option><option>270</option><option>300</option>";
         if (equipmentType == "ac") {
-            alert("ac!");
-        } else if (equipmentType == "lamp") {
-            alert("lamp!");
-        }        
+            if(currentState == "on") {
+                $('#equipmentBox .currentStatus').html('<a id="btn-change-state" href="#">Change State!</a><div class="form-block"><label>Temperature:</label><select class="form-input">' + optionsAC + '</select></div>');
+            }
+        } else if (equipmentType == "stove") {
+            if(currentState == "on"){
+                $('#equipmentBox .currentStatus').html('<a id="btn-change-state" href="#">Change State!</a><div><label>Temperature:</label><select class="form-input">' + optionsStove + '</select></div>');    
+            }
+        }else{
+            $('#equipmentBox .currentStatus').html('<a id="btn-change-state" href="#">Change State!</a>');
+        }   
 
+        //setting the new schedule controls
+        var newScheduleElements = '<form>';
+        if(equipmentType == "ac") {
+            newScheduleElements += '<div class="form-block"><label>Temperature</label><select class="form-input">' + optionsAC+ '</select></div>';
+        }else if (equipmentType == "stove") {
+            newScheduleElements += '<div class="form-block"><label>Temperature</label><select class="form-input">' + optionsStove+ '</select></div>';
+        }
+
+        newScheduleElements += '<div class="form-block"><label>Day Of The Week</label><select class="form-input"><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select></div>'+
+            '<div class="form-block"><label>Starting Hour</label><input type="time" class="form-input"></div>'+
+            '<div class="form-block"><label>Duration</label><input type="number" class="form-input"><select class="form-input"><option>Hours</option><option>Minutes</option></select></div>'+
+            '<div class="form-block"><label>Daily</label><input type="checkbox" class="form-input"></div></form>';
+
+        $('#equipmentBox div#newSchedule').html(newScheduleElements);
+
+        //on click of change state alter the visual state of the equipment
+        $('#btn-change-state').unbind().click(function(ev){
+            ev.preventDefault();
+            ev.stopPropagation();
+            
+            if (currentState == "off") {
+                currentState = "on";
+                equipment.data("state", "on");    
+                equipment.attr("src", "images/" + equipmentType + "-on.png");
+            }else{
+                currentState = "off";
+                equipment.data("state", "off"); 
+                equipment.attr("src", "images/" + equipmentType + "-off.png");
+            }
+        });
 
         $('#equipmentBox .top h2').html($(this).attr('id')+' - Equipment Control');
         $('#equipmentBox').show();
@@ -158,7 +165,6 @@ $(document).ready(function() {
         $('html').scrollTop(scrollPos);
     });
 });
-
 
 // Clicking anywhere outside of the popup box will close it
 

@@ -38,27 +38,27 @@
 					<div class="col-xs-12 col-md-offset-2 col-md-8">
 						<div id="plant">
 							<div id="bedroom">
-								<img id="ac1" class="ac equipment" src="images/ac.png">
-								<img id="door1" class="door equipment" src="images/door-open.png">
+								<img id="ac1" class="ac equipment" data-state="on" src="images/ac-on.png">
+								<img id="door1" class="door equipment" data-state="on" src="images/door-on.png">
 								<h5 class="text-center division-name">Bedroom</h5>
 							</div>
 							<div id="kitchen">
-								<img id="lamp1" class="lamp equipment" src="images/lamp-on.png">
-								<img id="door2" class="door equipment" src="images/door-open.png">
-								<img id="stove1" class="stove equipment" src="images/stove-on.png">
+								<img id="lamp1" data-state="off" class="lamp equipment" src="images/lamp-off.png">
+								<img id="door2" class="door equipment" data-state="off" src="images/door-off.png">
+								<img id="stove1" class="stove equipment" data-state="on" src="images/stove-on.png">
 								<h5 class="text-center division-name">Kitchen</h5>
 							</div>
 							<div id="wc">
-								<img id="door3" class="door equipment" src="images/door-open.png">
+								<img id="door3" class="door equipment" data-state="on" src="images/door-on.png">
 								<h5 class="text-center division-name">WC</h5>
 							</div>
 							<div id="livingroom">
-								<img id="ac2" class="ac equipment" src="images/ac.png">
-								<img id="ac3" class="ac equipment" src="images/ac.png">
-								<img id="tv1" class="tv equipment" src="images/tv-on.png">
+								<img id="ac2" class="ac equipment" data-state="on" src="images/ac-on.png">
+								<img id="ac3" class="ac equipment" data-state="off" src="images/ac-off.png">
+								<img id="tv1" class="tv equipment" data-state="on" src="images/tv-on.png">
 								<!-- add window blinds -->
-								<img id="door4" class="door equipment" src="images/door-open.png">
-								<img id="door5" class="door equipment" src="images/door-open.png">
+								<img id="door4" class="door equipment" data-state="on" src="images/door-on.png">
+								<img id="door5" class="door equipment" data-state="off" src="images/door-off.png">
 								<h5 class="text-center division-name">Living Room</h5>
 							</div>
 						</div>
@@ -105,60 +105,100 @@
 
 			$(".ac").hover(function(){
 				//this.src = 'images/ac-hover.png';
-				$(this).attr('src', 'images/ac-hover.png');
+				if($(this).data("state") == "off"){
+					$(this).attr('src', 'images/ac-off-hover.png');
+				}else{
+					$(this).attr('src', 'images/ac-on-hover.png');
+				}
 			});
 
 			$(".ac").mouseout(function() {
-				$(this).attr('src', 'images/ac.png');
+				if($(this).data("state") == "off"){
+					$(this).attr('src', 'images/ac-off.png');
+				}else{
+					$(this).attr('src', 'images/ac-on.png');
+				}
 			});
 
 			$(".door").hover(function(){
 				//this.src = 'images/ac-hover.png';
-				$(this).attr('src', 'images/door-open-hover.png');
+				if($(this).data("state") == "off"){
+					$(this).attr('src', 'images/door-off-hover.png');
+				}else{
+					$(this).attr('src', 'images/door-on-hover.png');
+				}
 			});
 
 			$(".door").mouseout(function() {
-				$(this).attr('src', 'images/door-open.png');
+				if($(this).data("state") == "off"){
+					$(this).attr('src', 'images/door-off.png');
+				}else{
+					$(this).attr('src', 'images/door-on.png');
+				}
 			});
 
 			$(".lamp").hover(function(){
 				//this.src = 'images/ac-hover.png';
-				$(this).attr('src', 'images/lamp-on-hover.png');
+				if($(this).data("state") == "off"){
+					$(this).attr('src', 'images/lamp-off-hover.png');
+				}else{
+					$(this).attr('src', 'images/lamp-on-hover.png');
+				}
 			});
 
 			$(".lamp").mouseout(function() {
-				$(this).attr('src', 'images/lamp-on.png');
+				if($(this).data("state") == "off"){
+					$(this).attr('src', 'images/lamp-off.png');
+				}else{
+					$(this).attr('src', 'images/lamp-on.png');
+				}
 			});
 
 			$(".stove").hover(function(){
 				//this.src = 'images/ac-hover.png';
-				$(this).attr('src', 'images/stove-on-hover.png');
+				if($(this).data("state") == "off"){
+					$(this).attr('src', 'images/stove-off-hover.png');
+				}else{
+					$(this).attr('src', 'images/stove-on-hover.png');
+				}
 			});
 
 			$(".stove").mouseout(function() {
-				$(this).attr('src', 'images/stove-on.png');
+				if($(this).data("state") == "off"){
+					$(this).attr('src', 'images/stove-off.png');
+				}else{
+					$(this).attr('src', 'images/stove-on.png');
+				}
 			});
 
 			$(".tv").hover(function(){
 				//this.src = 'images/ac-hover.png';
-				$(this).attr('src', 'images/tv-on-hover.png');
+				if($(this).data("state") == "off"){
+					$(this).attr('src', 'images/tv-off-hover.png');
+				}else{
+					$(this).attr('src', 'images/tv-on-hover.png');
+				}
 			});
 
 			$(".tv").mouseout(function() {
-				$(this).attr('src', 'images/tv-on.png');
+				if($(this).data("state") == "off"){
+					$(this).attr('src', 'images/tv-off.png');
+				}else{
+					$(this).attr('src', 'images/tv-on.png');
+				}
 			});
 
-			function handleOffConfig(btnElem){
+			function handleOffConfig(){
 				$('#plant').show();
 				$('#plantDrawing').hide();
-				$(btnElem).css({'color': 'white', 'background-color': '#36802d'});
+				$('#btn-toggle-off').css({'color': 'white', 'background-color': '#36802d'});
 				$('#btn-toggle-on').css({'background-color': 'white', 'color': '#36802d'});
 			}
 
-			function handleOnConfig(btnElem){
+			function handleOnConfig(){
 				$('#plant').hide();
 				$('#plantDrawing').show();
-				$(btnElem).css({'color': 'white', 'background-color': '#36802d'});
+				$('#btn-toggle-on').css({'color': 'white', 'background-color': '#36802d'});
 				$('#btn-toggle-off').css({'background-color': 'white', 'color': '#36802d'});
 			}
 	</script>
