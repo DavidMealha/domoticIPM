@@ -5,7 +5,6 @@ function openNav() {
     $('.header img').css('margin-left', '170px');
 
     //call the function that resizes the plant
-    calcPlantHeight();
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
@@ -15,7 +14,6 @@ function closeNav() {
     $('.header img').css('margin-left', '0px');
 
     //call the function that resizes the plant
-    calcPlantHeight();
 }
 
 function openNavRight() {
