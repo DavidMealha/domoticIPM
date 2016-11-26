@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Canvas demo 1</title>
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="boxes2.js"></script>
+    
+    <!-- A border on the canvas helps us see the edges -->
+    <style type="text/css">
+      #container2 { position: relative; }
+      #canvas2 { border: 1px solid #000; }
+	  #cvs1 { border: 1px solid #000; }
+	  #cvs2 { border: 1px solid #000; }
+	  #cont { visibility: hidden; }
+    </style> 
+		
+  </head>
+  <body>
+    <input type="button" value="Introdução de equipamentos" id="buttoncanvas"></input> 
+    <div id="container2">
+    <canvas id="canvas2" width="600" height="500" style="cursor: auto;">
+    This text is displayed if your browser does not support HTML5 Canvas.
+    </canvas>
+	</div>
+	<div id="cont">
+	<canvas height="100" width="600" id="cvs1">[No canvas support]</canvas><br>
+	<canvas height="600" width="700" id="cvs2">[No canvas support]</canvas>
+    </div>
+  
+</body></html>

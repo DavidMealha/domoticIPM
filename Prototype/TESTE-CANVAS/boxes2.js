@@ -198,7 +198,7 @@ function images(){
 	imgFOG.onload=function(){
 		states.push(addState(260,2,imgFOG));
 	}
-	imgFOG.src="images/stove-off-hover.png";
+	imgFOG.src="img-canvas/stove-off.png";
 }
 
 // initialize our canvas, add a ghost canvas, set draw loop
@@ -527,6 +527,7 @@ function getMouse(e) {
 
         function handleClick(e,contextIndex){
             e.stopPropagation();
+
             var mouseX=parseInt(e.clientX-e.target.offsetLeft);
             var mouseY=parseInt(e.clientY-e.target.offsetTop);
 
