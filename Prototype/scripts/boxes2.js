@@ -80,7 +80,7 @@ function Box2() {
   this.y = 0;
   this.w = 1; // default width and height?
   this.h = 1;
-  this.fill = '#444444';
+  this.fill = '#FFFFFF';
 }
 
 // New methods on the Box class
@@ -100,7 +100,9 @@ Box2.prototype = {
       if (this.x > WIDTH || this.y > HEIGHT) return; 
       if (this.x + this.w < 0 || this.y + this.h < 0) return;
       
+	 
       context.fillRect(this.x,this.y,this.w,this.h);
+	  
       
     // draw selection
     // this is a stroke along the box and also 8 new selection handles
@@ -198,96 +200,92 @@ function images(){
 	imgFOG.onload=function(){
 		states.push(addState(260,2,imgFOG));
 	}
-	imgFOG.src="images/stove-off-hover.png";
+	imgFOG.src="img-canvas/stove-off.png";
 }
 
 // initialize our canvas, add a ghost canvas, set draw loop
 // then add everything we want to intially exist on the canvas
 function init2() {
-//CANVAS - EQUIPMENT
-	canvas1 = document.getElementById("cvs1");
-	canvas2 = document.getElementById("cvs2");
-
-	contexts.push(canvas1.getContext("2d"));
-	contexts.push(canvas2.getContext("2d"));
-	canvas1.onclick=function(e){ handleClick(e,1); };
-	canvas2.onclick=function(e){ handleClick(e,2); };
-	canvas1.onmousemove = function(e){ handleMousemove(e,1); }
-	canvas2.onmousemove = function(e){ handleMousemove(e,2); }
-	 images();
 	
-	 $("#more").click(function(){
-		states.push(addState(states.length*100,0,img));
-	});	
-	
-	//CANVAS - DIVISIONS
-  canvas = document.getElementById('canvas2');
-  HEIGHT = canvas.height;
-  WIDTH = canvas.width;
-  ctx = canvas.getContext('2d');
-  ghostcanvas = document.createElement('canvas');
-  ghostcanvas.height = HEIGHT;
-  ghostcanvas.width = WIDTH;
-  gctx = ghostcanvas.getContext('2d');
-  
-  
-  var isequipments = false;
+  var isequipments = true;
+  var i = 0;
+  document.getElementById('cont').style.visibility = "visible";
+  document.getElementById('cont1').style.visibility = "hidden";
   
   document.getElementById("buttoncanvas").onclick=function(){
 	    if(isequipments){
 			isequipments=false;
-			document.getElementById('cont').style.visibility="hidden";
-			document.getElementById('container2').style.visibility="visible";
-			document.getElementById('buttoncanvas').value = "Introdução de divisões";
+			document.getElementById('cont1').style.visibility = "visible";
+			document.getElementById('buttoncanvas').value = "Introdução de Divisões";
+			canvas1 = document.getElementById("cvs1");
+			canvas2 = document.getElementById("cvs2");
+			contexts.push(canvas1.getContext("2d"));
+			contexts.push(canvas2.getContext("2d"));
+			canvas1.onclick=function(e){ handleClick(e,1); };
+			canvas2.onclick=function(e){ handleClick(e,2); };
+			canvas1.onmousemove = function(e){ handleMousemove(e,1); }
+			canvas2.onmousemove = function(e){ handleMousemove(e,2); }
+			 images();			
 		}else{
-			ctx.save();
-			document.getElementById('cont').style.visibility="visible";
-			document.getElementById('container2').style.visibility="hidden";
 			document.getElementById('buttoncanvas').value = "Introdução de Equipamentos";
-			isequipments = true;	
+			document.getElementById('cont1').style.visibility = "visible";
+			document.getElementById('').style.visibility = "hidden";
+			isequipments = true;
+			 canvas.onmousedown = myDown;
+			 canvas.onmouseup = myUp;
+			 canvas.ondblclick = myDblClick;
+			 canvas.onmousemove = myMove;
+				
 		}
 	 
   };
   
-  //fixes a problem where double clicking causes text to get selected on the canvas
-  canvas.onselectstart = function () { return false; }
+	  // add custom initialization here:
+	  canvas = document.getElementById('cvs2');
+	  HEIGHT = canvas.height;
+	  WIDTH = canvas.width;
+	  ctx = canvas.getContext('2d');
+	  ghostcanvas = document.createElement('canvas');
+	  ghostcanvas.height = HEIGHT;
+	  ghostcanvas.width = WIDTH;
+	  gctx = ghostcanvas.getContext('2d');
+	  //fixes a problem where double clicking causes text to get selected on the canvas
+	  canvas.onselectstart = function () { return false; }
+	  
+	  // fixes mouse co-ordinate problems when there's a border or padding
+	  // see getMouse for more detail
+	  if (document.defaultView && document.defaultView.getComputedStyle) {
+		stylePaddingLeft = parseInt(document.defaultView.getComputedStyle(canvas, null)['paddingLeft'], 10)     || 0;
+		stylePaddingTop  = parseInt(document.defaultView.getComputedStyle(canvas, null)['paddingTop'], 10)      || 0;
+		styleBorderLeft  = parseInt(document.defaultView.getComputedStyle(canvas, null)['borderLeftWidth'], 10) || 0;
+		styleBorderTop   = parseInt(document.defaultView.getComputedStyle(canvas, null)['borderTopWidth'], 10)  || 0;
+	  }
+	  
+	  // make mainDraw() fire every INTERVAL milliseconds
+	  setInterval(mainDraw, INTERVAL);
+	  
+	  // set our events. Up and down are for dragging,
+	  // double click is for making new boxes
+	  canvas.onmousedown = myDown;
+	  canvas.onmouseup = myUp;
+	  canvas.ondblclick = myDblClick;
+	  canvas.onmousemove = myMove;
+			 // set up the selection handle boxes
+	  for (var i = 0; i < 8; i ++) {
+		var rect = new Box2;
+		selectionHandles.push(rect);
+	  }
+			// add a large green rectangle
+	  addRect(260, 70, 60, 65, 'rgb(200,200,200)');
+	  
+	  // add a green-blue rectangle
+	  addRect(240, 120, 40, 40, 'rgb(200,200,200)');  
+	  
+	  // add a smaller purple rectangle
+	  addRect(45, 60, 25, 25, 'rgb(200,200,200)');
+				
   
-  // fixes mouse co-ordinate problems when there's a border or padding
-  // see getMouse for more detail
-  if (document.defaultView && document.defaultView.getComputedStyle) {
-    stylePaddingLeft = parseInt(document.defaultView.getComputedStyle(canvas, null)['paddingLeft'], 10)     || 0;
-    stylePaddingTop  = parseInt(document.defaultView.getComputedStyle(canvas, null)['paddingTop'], 10)      || 0;
-    styleBorderLeft  = parseInt(document.defaultView.getComputedStyle(canvas, null)['borderLeftWidth'], 10) || 0;
-    styleBorderTop   = parseInt(document.defaultView.getComputedStyle(canvas, null)['borderTopWidth'], 10)  || 0;
-  }
   
-  // make mainDraw() fire every INTERVAL milliseconds
-  setInterval(mainDraw, INTERVAL);
-  
-  // set our events. Up and down are for dragging,
-  // double click is for making new boxes
-  canvas.onmousedown = myDown;
-  canvas.onmouseup = myUp;
-  canvas.ondblclick = myDblClick;
-  canvas.onmousemove = myMove;
-  
-  // set up the selection handle boxes
-  for (var i = 0; i < 8; i ++) {
-    var rect = new Box2;
-    selectionHandles.push(rect);
-  }
-  
-  // add custom initialization here:
-
-  
-  // add a large green rectangle
-  addRect(260, 70, 60, 65, 'rgba(0,205,0,0.7)');
-  
-  // add a green-blue rectangle
-  addRect(240, 120, 40, 40, 'rgba(0,205,0,0.7)');  
-  
-  // add a smaller purple rectangle
-  addRect(45, 60, 25, 25, 'rgba(0,205,0,0.7)');
 }
 
 
@@ -488,7 +486,7 @@ function myDblClick(e) {
   var width = 40;
   var height = 40;
   //addRect(mx - (width / 2), my - (height / 2), width, height, 'rgba(0,205,0,0.7)');
-  addRect(mx - (width / 2), my - (height / 2), width, height, 'rgba(0,205,0,0.7)');
+  addRect(mx - (width / 2), my - (height / 2), width, height, 'rgb(200,200,200)');
 }
 
 
@@ -522,11 +520,12 @@ function getMouse(e) {
 		function clearAll(){
             //Clear both canvas first
             canvas1.width = canvas1.width
-            canvas2.width = canvas2.width
+            //canvas2.width = canvas2.width
         }
 
         function handleClick(e,contextIndex){
             e.stopPropagation();
+
             var mouseX=parseInt(e.clientX-e.target.offsetLeft);
             var mouseY=parseInt(e.clientY-e.target.offsetTop);
 
@@ -606,7 +605,7 @@ function getMouse(e) {
                 state.draw=function(){
                     var context=contexts[this.contextIndex-1];
                     if (this.dragging) {
-                        context.strokeStyle = 'red';
+                        context.strokeStyle = 'white';
                         context.strokeRect(this.x,this.y,this.width+5,this.height+5)
                     }
                     context.drawImage(this.image,this.x,this.y);

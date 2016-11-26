@@ -64,24 +64,15 @@
 							</div>
 						</div>
 						<div id="plantDrawing">
-							<input type="button" value="Introdução de equipamentos" id="buttoncanvas"></input> 
-							<div id="container2">
-							<canvas id="canvas2" width="600" height="500" style="cursor: auto;">
-							This text is displayed if your browser does not support HTML5 Canvas.
-							</canvas>
-							</div>
-							<div id="cont">
-							<canvas height="100" width="600" id="cvs1">[No canvas support]</canvas><br>
-							<canvas height="600" width="700" id="cvs2">[No canvas support]</canvas>
-							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-offset-2 configuration-mode">
-						<span>Configuration/Drawing Mode</span>
+						<!--<span>Configuration/Drawing Mode</span>
 						<button id="btn-toggle-off" class="btn btn-toggle" onclick="javascript:handleOffConfig(this);">Off</button>
-						<button id="btn-toggle-on" class="btn btn-toggle" onclick="javascript:handleOnConfig(this);">On</button>
+						<button id="btn-toggle-on" class="btn btn-toggle" onclick="javascript:handleOnConfig(this);">On</button>-->
+						<a href="floor1_canvas.html" class="btn">Drawing Mode</a>
 		    		</div>	
 				</div>
 	    	</div>
@@ -196,7 +187,7 @@
 				}
 			});
 
-			function handleOffConfig(){
+			/*function handleOffConfig(){
 				$('#plant').show();
 				$('#plantDrawing').hide();
 				$('#btn-toggle-off').css({'color': 'white', 'background-color': '#36802d'});
@@ -204,11 +195,13 @@
 			}
 
 			function handleOnConfig(){
+			
+			window.location.href="floor1_canvas.html";
 				$('#plant').hide();
 				$('#plantDrawing').show();
 				$('#btn-toggle-on').css({'color': 'white', 'background-color': '#36802d'});
 				$('#btn-toggle-off').css({'background-color': 'white', 'color': '#36802d'});
-			}
+			}*/
 	</script>
 </body>
 
