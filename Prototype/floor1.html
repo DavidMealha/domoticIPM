@@ -10,7 +10,7 @@
 	    <script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
 	    <!-- <script type="text/javascript" src="scripts/domotic.js"></script> -->
 	    <script type="text/javascript" src="scripts/main.js"></script>
-		<script type="text/javascript" src="scripts/boxes2.js"></script>
+		<!-- <script type="text/javascript" src="scripts/boxes2.js"></script> -->
 		
 
 	</head>
@@ -72,7 +72,7 @@
 						<!--<span>Configuration/Drawing Mode</span>
 						<button id="btn-toggle-off" class="btn btn-toggle" onclick="javascript:handleOffConfig(this);">Off</button>
 						<button id="btn-toggle-on" class="btn btn-toggle" onclick="javascript:handleOnConfig(this);">On</button>-->
-						<a href="floor1_canvas.html" class="btn">Drawing Mode</a>
+						<a href="floor1_canvas.html" class="btn" style="margin-left: 15px;">Drawing Mode</a>
 		    		</div>	
 				</div>
 	    	</div>
@@ -81,27 +81,28 @@
 
 	    <!--begin left side menu -->
 		<div id="mySidenav" class="sidenav sidenav-left">
-		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		  <a href="floors.html" class="sidenav-a">Floors</a>
-		  <ul class="list-unstyled">
-		  	<li><a href="floor1.html" class="menu-list-item sidenav-a-active">Floor 1</a></li>
-		  	<li><a href="floor2.html" class="menu-list-item">Floor 2</a></li>
-		  </ul>
-		  <a href="configuration.html" class="sidenav-a">Configuration</a>
-		  <a href="index.html" class="sidenav-a">Logout</a>
+	  		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  	<a href="floors.html" class="sidenav-a">Floors</a>
+		  	<ul class="list-unstyled">
+		  		<li><a href="floor1.html" class="menu-list-item sidenav-a-active">Floor 1</a></li>
+		  		<li><a href="floor2.html" class="menu-list-item">Floor 2</a></li>
+		  	</ul>
+		  	<a href="configuration.html" class="sidenav-a">Configuration</a>
+	 	 	<a href="index.html" class="sidenav-a">Logout</a>
 		</div>
 		<!--end left side menu -->
 
 		<script type="text/javascript">
 			$(document).ready(function(){
 				calcPlantHeight();
-				handleOffConfig($('#btn-toggle-off'));
+				//handleOffConfig($('#btn-toggle-off'));
 			});
 
 			$(window).resize(function() {
 				calcPlantHeight();
 			});
 
+			//should be in main.js 
 			$(".ac").hover(function(){
 				//this.src = 'images/ac-hover.png';
 				if($(this).data("state") == "off"){

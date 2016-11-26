@@ -451,6 +451,8 @@ Floor Page Styles
 
 #equipmentBox .bottom {
     background: #eee;
+    background: white;
+    border-top: 0;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }

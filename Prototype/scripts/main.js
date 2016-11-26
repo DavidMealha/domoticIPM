@@ -5,6 +5,7 @@ function openNav() {
     $('.header img').css('margin-left', '170px');
 
     //call the function that resizes the plant
+    calcPlantHeight();
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
@@ -14,6 +15,7 @@ function closeNav() {
     $('.header img').css('margin-left', '0px');
 
     //call the function that resizes the plant
+    calcPlantHeight();
 }
 
 function openNavRight() {
@@ -102,13 +104,25 @@ $(document).ready(function() {
 
         var btnMessage,statusMessage,spanColorTag, btnColorTag;
         if(currentState == "on"){
-            btnMessage = "Turn Off";
-            statusMessage = "Currently ON - ";
+            if (equipmentType == "door") {
+                btnMessage = "Close";
+                statusMessage = "Currently Open - ";    
+            }else{
+                btnMessage = "Turn Off";
+                statusMessage = "Currently ON - ";    
+            }
+            
             spanColorTag = "green";
             btnColorTag = "btn-red";
         }else{
-            btnMessage = "Turn On";
-            statusMessage = "Currently OFF - ";
+             if (equipmentType == "door") {
+                btnMessage = "Open";
+                statusMessage = "Currently Closed - ";    
+            }else{
+                btnMessage = "Turn On";
+                statusMessage = "Currently OFF - ";   
+            }
+            
             spanColorTag = "red";
             btnColorTag = "btn-green";
         }
@@ -116,7 +130,7 @@ $(document).ready(function() {
         if (equipmentType == "ac") {
             $('#equipmentBox .currentStatus').html('<span id="currentStatusSpan" class="'+spanColorTag+'">'+statusMessage+'</span><a id="btn-change-state" class="btn '+btnColorTag+'" href="#">'+ btnMessage +'</a><div class="form-block"><label>Temperature:</label><select class="form-input">' + optionsAC + '</select></div>');
         } else if (equipmentType == "stove") {
-            $('#equipmentBox .currentStatus').html('<span id="currentStatusSpan" class="'+spanColorTag+'">'+statusMessage+'</span><a id="btn-change-state" class="btn '+btnColorTag+'" href="#">'+ btnMessage +'</a><div><label>Temperature:</label><select class="form-input">' + optionsStove + '</select></div>');    
+            $('#equipmentBox .currentStatus').html('<span id="currentStatusSpan" class="'+spanColorTag+'">'+statusMessage+'</span><a id="btn-change-state" class="btn '+btnColorTag+'" href="#">'+ btnMessage +'</a><div class="form-block"><label>Temperature:</label><select class="form-input">' + optionsStove + '</select></div>');    
         }else{
             $('#equipmentBox .currentStatus').html('<span id="currentStatusSpan" class="'+spanColorTag+'">'+statusMessage+'</span><a id="btn-change-state" class="btn '+btnColorTag+'" href="#">'+ btnMessage +'</a>');
         }   
@@ -150,8 +164,16 @@ $(document).ready(function() {
                 equipment.attr("src", "images/" + equipmentType + "-on.png");
 
                 ev.target.className = "btn btn-red";
-                $(ev.target).text("Turn Off");
-                $('#currentStatusSpan').text('Currently ON - ').attr('class', 'green');
+                if (equipmentType == "door") {
+                    $(ev.target).text("Close");
+                    $('#currentStatusSpan').text('Currently Open - ').attr('class', 'green');
+                }
+                else
+                {
+                    $(ev.target).text("Turn Off");
+                    $('#currentStatusSpan').text('Currently ON - ').attr('class', 'green');
+                }
+                
 
             }else{
                 currentState = "off";
@@ -159,8 +181,16 @@ $(document).ready(function() {
                 equipment.attr("src", "images/" + equipmentType + "-off.png");
 
                 ev.target.className = "btn btn-green";
-                $(ev.target).text("Turn On");
-                $('#currentStatusSpan').text('Currently OFF - ').attr('class', 'red');
+                if (equipmentType == "door") {
+                    $(ev.target).text("Open");
+                    $('#currentStatusSpan').text('Currently Closed - ').attr('class', 'red');
+                }
+                else
+                {
+                    $(ev.target).text("Turn On");
+                    $('#currentStatusSpan').text('Currently OFF - ').attr('class', 'red');
+                }
+                
             }
         });
 
